@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../style/products.css";
 import axios from "axios";
 import Card from "../components/card";
+import Loading from "../components/loading";
 
 export const Products = () => {
   const [data, setData] = useState([]);
@@ -17,7 +18,7 @@ export const Products = () => {
           `https://dummyjson.com/products?limit=${productsPerPage}&skip=${skip}`
         );
         setData(response.data.products);
-        setTotalPages(Math.ceil(response.data.total / productsPerPage)); 
+        setTotalPages(Math.ceil(response.data.total / productsPerPage));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -34,8 +35,15 @@ export const Products = () => {
   const getPageRange = () => {
     const startPage = Math.max(1, page - 1);
     const endPage = Math.min(totalPages, page + 1);
-    return Array.from({ length: endPage - startPage + 1 }, (_, index) => startPage + index);
+    return Array.from(
+      { length: endPage - startPage + 1 },
+      (_, index) => startPage + index
+    );
   };
+
+  if (data.length == 0) {
+    return <Loading />;
+  }
 
   return (
     <div className="products-page">
@@ -93,8 +101,3 @@ export const Products = () => {
     </div>
   );
 };
-
-
-
-
-

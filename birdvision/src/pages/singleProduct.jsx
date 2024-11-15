@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../style/singleProduct.css";
+import Loading from "../components/loading";
 
 const SingleProduct = () => {
   const { id } = useParams(); 
@@ -21,7 +22,7 @@ const SingleProduct = () => {
   }, [id]);
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <Loading/>;
   }
 
   return (
