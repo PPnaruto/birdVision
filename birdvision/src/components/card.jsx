@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Card = ({image, title, price, id}) => {
     const navigate = useNavigate()
     const onNavigate = () =>{
-        navigate(`/singleproduct/${id}`)
+        navigate(`/products/${id}`)
     }
   return (
     <div class="card" style={{width: "18rem"}} onClick={onNavigate}>

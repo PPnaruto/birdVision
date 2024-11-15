@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Products Pagination Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React application that displays a list of products with pagination. The application fetches products data from a remote API dynamically as users navigate through different pages. Pagination is handled client-side with Bootstrap styling.
 
-## Available Scripts
+### Features
 
-In the project directory, you can run:
+`Pagination`: The application fetches 10 products per page using the limit and skip query parameters from the DummyJSON API.
+`Client-Side Pagination`: Displays a subset of products per page, with pagination controls for navigation.
+`Responsive Design`: Displays product information in a grid layout, with each product in a card format.
+`Product Details`: Each product displays its image, title, and price.
 
-### `npm start`
+### Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`React`: Front-end JavaScript library for building user interfaces.
+`Axios`: Promise-based HTTP client for making API requests.
+`Bootstrap`: CSS framework used for pagination styling.
+`CSS`: Custom styling for layout and components.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Installation
+Follow these steps to run the application locally:
 
-### `npm test`
+`Clone the Repository`:
+git clone [https://github.com/PPnaruto/birdVision/tree/main](https://github.com/PPnaruto/birdVision/tree/main)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`Navigate into the Project Directory`:
+cd birdvision
 
-### `npm run build`
+`Install Dependencies`:
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`Run the Application`:
+npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The application will start and be available at http://localhost:3000.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Usage
 
-### `npm run eject`
+`Products Page`
+The main page displays products in a grid format, showing 10 products per page by default. You can navigate between pages using the pagination bar at the bottom of the page.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`Pagination Controls`
+Previous & Next: Navigate between pages.
+Page Numbers: Directly jump to a specific page.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Code Overview
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`Key Components`
+Products.js: This is the main component that:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Fetches 10 products at a time from the API whenever a user navigates to a new page.
+Implements client-side pagination using the page state.
+Uses the Card component to render individual products.
+Card.js: Renders a single product card, displaying the product image, title, and price.
 
-## Learn More
+`CSS Styling`
+The custom styles in products.css help to align elements at the center, and Bootstrap classes are used for pagination styling. This makes the app responsive and visually consistent.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`API`
+The application uses the Dummy JSON API to fetch product data:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Endpoint: https://dummyjson.com/products
 
-### Code Splitting
+Query Parameters:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+limit: Number of products to fetch (default: 10).
+skip: The starting index for fetching products (default: 0).
 
-### Analyzing the Bundle Size
+Data Structure:
+The response is structured with a list of products, each containing id, title, price, thumbnail, and other attributes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Future Improvements
 
-### Making a Progressive Web App
+Load More: Add an option to load additional products instead of paginating.
+Search Functionality: Allow users to search for products by title.
+Filter Products: Implement filters (e.g., by category, price range).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Acknowledgments
 
-### Advanced Configuration
+Dummy JSON API for providing free, sample data.
+React and Bootstrap for making front-end development faster and more enjoyable.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

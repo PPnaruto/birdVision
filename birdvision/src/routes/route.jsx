@@ -7,8 +7,7 @@ const PageRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Products />} />
-      <Route path="/products" element={<Products />} />
-      <Route path="/singleproduct/:id" element={<SingleProduct />} />
+      <Route path="/products/:id" element={<SingleProduct />} />
     </Routes>
   );
 };
